@@ -29,9 +29,9 @@ public class ShareOptions {
     private final @ShareCallbackType int shareCallbackType;    //wap是否要回调：0：不要回调，1：点击面板成功回调，2：友盟成功回调；
     private final boolean enableGlobalCallback;//是否允许全局的callback处理，默认为true
     private final CharSequence shareBoardTitle;//分享面板的标题文案（可以是富文本，使用SpannableString或者SpannableStringBuilder）
-    private final String extra1;  // 附加信息1，可作为更多1里的携带的附加数据，也可以作为自定义附加的数据
-    private final String extra2;  // 附加信息2，可作为更多2里的携带的附加数据，也可以作为自定义附加的数据
-    private final String extra3;  // 附加信息3，可作为更多3里的携带的附加数据，也可以作为自定义附加的数据
+    private final Object extra1;  // 附加信息1，可作为更多1里的携带的附加数据，也可以作为自定义附加的数据
+    private final Object extra2;  // 附加信息2，可作为更多2里的携带的附加数据，也可以作为自定义附加的数据
+    private final Object extra3;  // 附加信息3，可作为更多3里的携带的附加数据，也可以作为自定义附加的数据
 
     private ShareOptions(Builder builder) {
         activity = builder.activity;
@@ -126,15 +126,15 @@ public class ShareOptions {
         return shareCallbackType;
     }
 
-    public String getExtra1() {
+    public Object getExtra1() {
         return extra1;
     }
 
-    public String getExtra2() {
+    public Object getExtra2() {
         return extra2;
     }
 
-    public String getExtra3() {
+    public Object getExtra3() {
         return extra3;
     }
 
@@ -156,9 +156,9 @@ public class ShareOptions {
         private @ShareCallbackType int shareCallbackType = ShareCallbackType.DEFULT_RESULT;//默认值是友盟的成功回调
         private boolean enableGlobalCallback = true;//是否允许全局的callback处理，默认为true
         private CharSequence shareBoardTitle;//分享面板的标题文案（可以是富文本，使用SpannableString或者SpannableStringBuilder）
-        private String extra1;  // 附加信息1，可作为更多1里的携带的附加数据，也可以作为自定义附加的数据
-        private String extra2;  // 附加信息2，可作为更多2里的携带的附加数据，也可以作为自定义附加的数据
-        private String extra3;  // 附加信息3，可作为更多3里的携带的附加数据，也可以作为自定义附加的数据
+        private Object extra1;  // 附加信息1，可作为更多1里的携带的附加数据，也可以作为自定义附加的数据
+        private Object extra2;  // 附加信息2，可作为更多2里的携带的附加数据，也可以作为自定义附加的数据
+        private Object extra3;  // 附加信息3，可作为更多3里的携带的附加数据，也可以作为自定义附加的数据
 
         private Builder(FragmentActivity activity) {
             this.activity = activity;
@@ -244,17 +244,17 @@ public class ShareOptions {
             return this;
         }
 
-        public Builder extra1(String extra1) {
+        public Builder extra1(Object extra1) {
             this.extra1 = extra1;
             return this;
         }
 
-        public Builder extra2(String extra2) {
+        public Builder extra2(Object extra2) {
             this.extra2 = extra2;
             return this;
         }
 
-        public Builder extra3(String extra3) {
+        public Builder extra3(Object extra3) {
             this.extra3 = extra3;
             return this;
         }
