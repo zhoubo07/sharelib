@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShareBaseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="share_window_bottom_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/share_anim_slideup_in</item>
+        <item name="android:windowExitAnimation">@anim/share_anim_slidedown_out</item>
+    </style>
+
+    <style name="share_window_top_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/share_anim_slidedown_in</item>
+        <item name="android:windowExitAnimation">@anim/share_anim_slideup_out</item>
+    </style>
+
+
+</resources>

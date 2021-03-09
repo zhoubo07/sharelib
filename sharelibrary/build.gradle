@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly rootProject.ext.dependencies.appcompat
+    compileOnly rootProject.ext.dependencies.recyclerview
+    api rootProject.ext.dependencies.permission
+    api rootProject.ext.dependencies.umeng_common
+    api rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
+}
+
+//aar打包
+//apply from: 'maven-release-aar.gradle'
+
+// 发布到github然后用jitpack发布 添加
+apply plugin: 'com.github.dcendents.android-maven'
+// 指定group，com.github.<用户名>，这里我默认填写的是我的github账号，请换成你自己的。
+group='com.github.zhoubo07'
